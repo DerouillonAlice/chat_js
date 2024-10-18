@@ -1,9 +1,10 @@
 // @function randomColor() {
-//     $red: random(256) - 1;
-//     $green: random(256) - 1;
-//     $blue: random(256) - 1;
-//     @return rgb($red, $green, $blue);
+//   $red: random(256) - 1;
+//   $green: random(256) - 1;
+//   $blue: random(256) - 1;
+//   @return rgb($red, $green, $blue);
 // }
+
 
 body {
   font-family: Arial, sans-serif;
@@ -16,23 +17,45 @@ body {
   margin: auto;
   overflow-y: auto;
   background-color: #f6f8fa;
+  // border-radius: 5% 5% 0% 0%;
   padding: 30px;
   max-width: 600px;
 }
 
+.date-separator {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin: 20px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; 
+
+  &:before,
+  &:after {
+    content: "";
+    flex-grow: 1; 
+    height: 1px;
+    background-color: #ccc;
+  }
+}
+
+
 .message-item {
   display: flex;
   align-items: center;
-  // justify-content: space-around;
   margin-bottom: 30px;
   gap: 20px;
 }
+
 
 .right-message {
   flex-direction: row-reverse;
 
   .message-text {
-      border-radius: 15px 15px 0 15px;
+    border-radius: 15px 15px 0 15px;
   }
 }
 
@@ -40,20 +63,20 @@ body {
   flex-direction: row;
 
   .message-text {
-      border-radius: 15px 15px 15px 0;
-      background-color: #9c6ce8;
-      color: white;
+    border-radius: 15px 15px 15px 0;
+    background-color: #9c6ce8;
+    color: white;
   }
 }
 
 .message-text {
   background-color: white;
   box-shadow: 0px 0px 5px #ccc;
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
   width: 80%;
   word-wrap: break-word;
-  position: relative; 
+  position: relative;
 }
 
 .message-timestamp {
@@ -63,6 +86,7 @@ body {
   bottom: 5px; 
   right: 10px; 
 }
+
 .profile-circle {
   width: 40px;
   height: 40px;
@@ -73,16 +97,8 @@ body {
   color: white;
   font-weight: bold;
   font-size: 16px;
-  background-color: red;
-}
+  // background-color: randomColor(); 
 
-.message-text {
-  background-color: white;
-  box-shadow: 0px 0px 5px #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  width: 80%;
-  word-wrap: break-word;
 }
 
 * {
@@ -91,40 +107,45 @@ body {
 
 .inputs {
   display: flex;
-  flex-direction: column;
   gap: 5px;
   margin: auto;
   max-width: 600px;
   width: 100%;
-  padding:0px 20px 20px 20px;
+  padding: 0 20px 20px 20px;
   background-color: #f6f8fa;
+  // border-radius: 0% 0% 5% 5%;
+
+  #pseudo {
+    width: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
+
+  #message {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
 }
 
-input[type="text"] {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
+
+
+.message-wrapper {
+  position: relative;
+  width: 80%;
 }
 
-input[type="submit"] {
-  padding: 10px;
-  margin: auto;
-  max-width: 600px;
-  width: 20%;
-  border: none;
-  background-color: #5d00ff;
-  color: white;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
+
+.send-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background-color: #8531fa;
+  width: 24px;
+  height: 24px;
 }
 
 .wizz {
@@ -140,18 +161,18 @@ input[type="submit"]:hover {
 
 @keyframes shake {
   10%, 90% {
-      transform: translate3d(-1px, 0, 0);
+    transform: translate3d(-1px, 0, 0);
   }
   
   20%, 80% {
-      transform: translate3d(2px, 0, 0);
+    transform: translate3d(2px, 0, 0);
   }
 
   30%, 50%, 70% {
-      transform: translate3d(-4px, 0, 0);
+    transform: translate3d(-4px, 0, 0);
   }
 
   40%, 60% {
-      transform: translate3d(4px, 0, 0);
+    transform: translate3d(4px, 0, 0);
   }
 }
